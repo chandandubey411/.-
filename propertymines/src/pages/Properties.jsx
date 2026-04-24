@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import PropertyCard from '../components/PropertyCard'
 import propertiesData from '../data/propertiesData'
+import bannerProperties from '../assets/images/banner_properties.png'
 
 const FILTERS = ['All', 'Apartment', 'Villa', 'Plot', 'Commercial']
 const INITIAL_SHOW = 12
@@ -42,24 +43,23 @@ export default function Properties() {
   return (
     <div className="bg-[#fffdf8] min-h-screen">
 
-      {/* ── HERO ────────────────────────────────────────────────── */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-300/30 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-orange-300/25 blur-3xl" />
+      {/* ── HERO BANNER ────────────────────────────────────────── */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <img src={bannerProperties} alt="Properties" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             Exclusive Listings
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight drop-shadow-lg">
             Find Your
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
               Dream Property
             </span>
           </h1>
-          <p className="mt-5 text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="mt-5 text-gray-200 text-lg max-w-2xl mx-auto">
             Explore our handpicked selection of premium apartments, villas, plots, and commercial spaces across Ghaziabad.
           </p>
         </div>

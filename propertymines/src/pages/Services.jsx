@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import bannerServices from '../assets/images/banner_services.png'
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
@@ -155,41 +156,36 @@ export default function Services() {
   return (
     <div className="bg-[#fffdf8] min-h-screen">
 
-      {/* ── HERO ────────────────────────────────────────────────── */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-300/30 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-orange-300/25 blur-3xl" />
-        {/* Small floating icon blobs */}
-        <div className="absolute top-20 left-12 text-5xl opacity-20 hidden lg:block animate-float">🏠</div>
-        <div className="absolute bottom-20 right-16 text-5xl opacity-20 hidden lg:block animate-float" style={{ animationDelay: '1s' }}>⚖️</div>
-        <div className="absolute top-1/2 left-1/4 text-4xl opacity-10 hidden lg:block animate-float" style={{ animationDelay: '2s' }}>💰</div>
+      {/* ── HERO BANNER ────────────────────────────────────────── */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        <img src={bannerServices} alt="Our Services" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             What We Offer
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight drop-shadow-lg">
             Comprehensive
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
               Real Estate Services
             </span>
           </h1>
-          <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-gray-200 text-lg max-w-2xl mx-auto leading-relaxed">
             From finding your dream home to securing the best mortgage deals,
             we guide you through every step of your property journey.
           </p>
 
           {/* Service quick-links */}
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             {services.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-amber-400 hover:text-amber-600 hover:shadow-md transition-all duration-200"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-semibold text-white hover:bg-white/20 hover:border-amber-400/50 transition-all duration-200"
               >
-                <span>{s.icon}</span> {s.title.split(' ').slice(0, 2).join(' ')}
+                {s.title.split(' ').slice(0, 2).join(' ')}
               </a>
             ))}
           </div>
@@ -301,27 +297,29 @@ export default function Services() {
           <div className="text-center mb-14">
             <span className="text-amber-500 text-sm font-bold uppercase tracking-widest">Our Edge</span>
             <h2 className="font-display text-4xl md:text-5xl font-black text-gray-900 mt-3">
-              Why Choose Aroras Properties?
+              Why Choose Property Mines?
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: '🏆', title: '15+ Years of Expertise', desc: 'Deep knowledge of Ghaziabad real estate, built over 15+ years of hands-on experience.' },
-              { icon: '🔒', title: '100% Legally Safe Deals', desc: 'Every property is thoroughly verified. We ensure your investment is legally sound and clear.' },
-              { icon: '💡', title: 'End-to-End Guidance', desc: 'From search to registration, we handle every step so you don\'t have to worry about anything.' },
-              { icon: '🤝', title: 'No Hidden Charges', desc: 'Transparent fee structure with zero surprises. What we quote is exactly what you pay.' },
-              { icon: '📱', title: '24/7 Client Support', desc: 'Our team is always available to answer your questions and address concerns at any time.' },
-              { icon: '⚡', title: 'Fast Processing', desc: 'We leverage technology and partnerships to close deals 3x faster than industry average.' },
+              { img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&auto=format&fit=crop', title: '15+ Years of Expertise', desc: 'Deep knowledge of Ghaziabad real estate, built over 15+ years of hands-on experience.' },
+              { img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&auto=format&fit=crop', title: '100% Legally Safe Deals', desc: 'Every property is thoroughly verified. We ensure your investment is legally sound and clear.' },
+              { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&auto=format&fit=crop', title: 'End-to-End Guidance', desc: 'From search to registration, we handle every step so you don\'t have to worry about anything.' },
+              { img: 'https://images.unsplash.com/photo-1582407947092-5a4001a590df?w=400&auto=format&fit=crop', title: 'No Hidden Charges', desc: 'Transparent fee structure with zero surprises. What we quote is exactly what you pay.' },
+              { img: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=400&auto=format&fit=crop', title: '24/7 Client Support', desc: 'Our team is always available to answer your questions and address concerns at any time.' },
+              { img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&auto=format&fit=crop', title: 'Fast Processing', desc: 'We leverage technology and partnerships to close deals 3x faster than industry average.' },
             ].map((item, i) => (
               <div
                 key={i}
-                className="card-hover p-7 rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100"
+                className="card-hover rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 overflow-hidden"
               >
-                <div className="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-5">
-                  {item.icon}
+                <div className="h-40 overflow-hidden">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                <div className="p-6">
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -358,7 +356,7 @@ export default function Services() {
           </h2>
           <p className="text-white/80 mt-4 text-lg max-w-2xl mx-auto">
             Whether you need expert advice, a property valuation, or loan assistance,
-            our team is just a call away. Experience the Aroras Properties difference today.
+            our team is just a call away. Experience the Property Mines difference today.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
             <Link

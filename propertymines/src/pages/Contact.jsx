@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, MeshDistortMaterial, Sphere, Box, Torus, OrbitControls } from '@react-three/drei'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
+import bannerContact from '../assets/images/banner_contact.png'
 
 /* ─── 3D Scene Objects ──────────────────────────────────────────── */
 
@@ -171,24 +172,23 @@ export default function Contact() {
   return (
     <div className="bg-[#fffdf8] min-h-screen">
 
-      {/* ── HERO ────────────────────────────────────────────────── */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-300/30 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-orange-300/25 blur-3xl" />
+      {/* ── HERO BANNER ────────────────────────────────────────── */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <img src={bannerContact} alt="Contact Us" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             Get In Touch
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight drop-shadow-lg">
             Let's Discuss
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
               Your Dream Home
             </span>
           </h1>
-          <p className="mt-5 text-gray-600 text-lg max-w-xl mx-auto">
+          <p className="mt-4 text-gray-200 text-lg max-w-xl mx-auto">
             Fill out the form below and our team will get back to you shortly.
           </p>
         </div>
@@ -219,9 +219,9 @@ export default function Contact() {
             {/* Contact Info Cards */}
             <div className="grid gap-4">
               {[
-                { icon: '📍', title: 'Visit Our Office', detail: 'Shop No.16, KM Srathi, Raj Nagar Ext.', sub: 'Ghaziabad, Uttar Pradesh 201017' },
-                { icon: '📞', title: 'Call Us Anytime', detail: '+91 98765 43210', sub: 'Mon–Sat from 10am to 7pm' },
-                { icon: '✉️', title: 'Email Support', detail: 'info@arorasproperties.com', sub: 'We reply usually within 24 hours' },
+                { icon: '📍', title: 'Visit Our Office', detail: 'B-14, Shop No.1, Ramprastha Colony', sub: 'Ghaziabad, UP - 201011' },
+                { icon: '📞', title: 'Call Us Anytime', detail: '9871216007', sub: 'Mon–Sat from 10am to 7pm' },
+                { icon: '✉️', title: 'Email Support', detail: 'nirmalsatyaa@gmail.com', sub: 'We reply usually within 24 hours' },
               ].map((info, i) => (
                 <div key={i} className="card-hover flex items-start gap-4 bg-white rounded-2xl p-5 border border-amber-100 shadow-sm">
                   <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
@@ -239,7 +239,7 @@ export default function Contact() {
             {/* Map embed */}
             <div className="rounded-2xl overflow-hidden border border-amber-100 shadow-md h-48">
               <iframe
-                title="Aroras Properties Location"
+                title="Property Mines Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.5!2d77.4526!3d28.6821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDQwJzU1LjYiTiA3N8KwMjcnMDkuNCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"

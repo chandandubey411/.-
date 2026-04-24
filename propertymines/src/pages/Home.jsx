@@ -1,13 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
+
+/* ─── Image Imports ───────────────────────────────────────────── */
+import heroSlide1 from '../assets/images/hero_slide_1.png'
+import heroSlide2 from '../assets/images/hero_slide_2.png'
+import heroSlide3 from '../assets/images/hero_slide_3.png'
+import serviceBuying from '../assets/images/service_buying.png'
+import serviceSelling from '../assets/images/service_selling.png'
+import serviceRental from '../assets/images/service_rental.png'
+import propApartment from '../assets/images/prop_apartment.png'
+import propIndependent from '../assets/images/prop_independent.png'
+import propBuilderFloor from '../assets/images/prop_builder_floor.png'
+import propCommercial from '../assets/images/prop_commercial.png'
+import whoWeAreImg from '../assets/images/who_we_are.png'
 
 /* ─── Static Data ─────────────────────────────────────────────── */
 
+const heroSlides = [
+  { img: heroSlide1, tagline: 'Premium Apartments & Flats' },
+  { img: heroSlide2, tagline: 'Residential Colonies & Floors' },
+  { img: heroSlide3, tagline: 'Luxury Interiors & Living' },
+]
+
 const stats = [
-  { icon: '🏆', value: '10+', label: 'Years Experience' },
-  { icon: '😊', value: '100+', label: 'Happy Clients' },
-  { icon: '🏠', value: '50+', label: 'Active Listings' },
-  { icon: '🤝', value: '100%', label: 'Personalised Service' },
+  { value: '10+', label: 'Years Experience' },
+  { value: '100+', label: 'Happy Clients' },
+  { value: '50+', label: 'Active Listings' },
+  { value: '100%', label: 'Personalised Service' },
 ]
 
 const properties = [
@@ -19,8 +38,7 @@ const properties = [
     title: '2 & 3 BHK Flats',
     location: 'Ramprastha Colony, Ghaziabad',
     beds: 3, baths: 2, sqft: 1250,
-    gradient: 'from-amber-400 to-orange-500',
-    emoji: '🏙️',
+    image: propApartment,
   },
   {
     id: 2,
@@ -30,8 +48,7 @@ const properties = [
     title: 'Independent Builder Floor',
     location: 'Ramprastha Colony, Ghaziabad',
     beds: 4, baths: 3, sqft: 2200,
-    gradient: 'from-emerald-400 to-teal-500',
-    emoji: '🏡',
+    image: propIndependent,
   },
   {
     id: 3,
@@ -41,8 +58,7 @@ const properties = [
     title: 'Builder Floor — Ready to Move',
     location: 'Ramprastha Colony, Ghaziabad',
     beds: 2, baths: 2, sqft: 900,
-    gradient: 'from-sky-400 to-blue-500',
-    emoji: '🏢',
+    image: propBuilderFloor,
   },
   {
     id: 4,
@@ -52,35 +68,31 @@ const properties = [
     title: 'Commercial Space — Vaishali Plaza',
     location: 'Vaishali, Near Ramprastha Colony',
     sqft: 450,
-    gradient: 'from-purple-400 to-violet-500',
-    emoji: '🏬',
+    image: propCommercial,
   },
 ]
 
 const services = [
   {
-    icon: '🏠',
+    image: serviceBuying,
     title: 'Property Buying Assistance',
     desc: 'Shortlisting based on your requirement, arranging site visits, and providing price negotiation support — we handle it all.',
     color: 'from-amber-50 to-orange-50',
     border: 'border-amber-200',
-    iconBg: 'bg-amber-100',
   },
   {
-    icon: '💼',
+    image: serviceSelling,
     title: 'Property Selling Support',
     desc: 'Marketing your property locally, filtering genuine buyers, and assisting during deal finalisation for the best value.',
     color: 'from-emerald-50 to-teal-50',
     border: 'border-emerald-200',
-    iconBg: 'bg-emerald-100',
   },
   {
-    icon: '🔑',
+    image: serviceRental,
     title: 'Rental & Lease Services',
     desc: 'Finding reliable tenants, rental agreement coordination, and periodic assistance as required — fully managed.',
     color: 'from-sky-50 to-blue-50',
     border: 'border-sky-200',
-    iconBg: 'bg-sky-100',
   },
 ]
 
@@ -151,8 +163,8 @@ function PropertyCard({ prop, delay }) {
       className={`animate-fade-up delay-${delay} card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col`}
     >
       {/* Image area */}
-      <div className={`relative h-52 bg-gradient-to-br ${prop.gradient} img-zoom flex items-center justify-center`}>
-        <span className="text-7xl select-none">{prop.emoji}</span>
+      <div className="relative h-52 img-zoom overflow-hidden">
+        <img src={prop.image} alt={prop.title} className="w-full h-full object-cover" />
         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-full text-gray-800 shadow">
           {prop.type}
         </div>
@@ -172,8 +184,8 @@ function PropertyCard({ prop, delay }) {
         </p>
 
         <div className="mt-4 flex items-center gap-4 text-sm text-gray-600 border-t border-gray-100 pt-4">
-          <span className="flex items-center gap-1">🛏️ {prop.beds} Beds</span>
-          <span className="flex items-center gap-1">🚿 {prop.baths} Baths</span>
+          {prop.beds && <span className="flex items-center gap-1">🛏️ {prop.beds} Beds</span>}
+          {prop.baths && <span className="flex items-center gap-1">🚿 {prop.baths} Baths</span>}
           <span className="flex items-center gap-1">📐 {prop.sqft} sqft</span>
         </div>
 
@@ -190,28 +202,63 @@ function PropertyCard({ prop, delay }) {
 
 /* ─── Main Home Component ─────────────────────────────────────── */
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev + 1) % heroSlides.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000)
+    return () => clearInterval(timer)
+  }, [nextSlide])
+
   return (
     <div className="bg-[#fffdf8] min-h-screen">
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Vibrant background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100" />
-        {/* Decorative blobs */}
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-amber-300/30 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-orange-300/25 blur-3xl" />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-yellow-200/40 blur-2xl" />
+        {/* Background Image Slider */}
+        {heroSlides.map((slide, i) => (
+          <div
+            key={i}
+            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            style={{ opacity: currentSlide === i ? 1 : 0 }}
+          >
+            <img
+              src={slide.img}
+              alt={slide.tagline}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                currentSlide === i ? 'w-8 bg-amber-400' : 'w-2 bg-white/50 hover:bg-white/80'
+              }`}
+            />
+          ))}
+        </div>
 
         {/* Floating cards decoration */}
-        <div className="absolute top-24 right-16 animate-float hidden lg:block">
-          <div className="bg-white rounded-2xl shadow-xl px-5 py-4 border border-amber-100">
+        <div className="absolute top-24 right-16 animate-float hidden lg:block z-20">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl px-5 py-4 border border-amber-100">
             <p className="text-xs text-gray-400 font-medium">Featured Area</p>
             <p className="text-sm font-bold text-gray-800 mt-0.5">Ramprastha Colony</p>
             <p className="text-amber-500 font-bold text-base mt-1">2 & 3 BHK from ₹45L*</p>
           </div>
         </div>
-        <div className="absolute bottom-32 left-16 animate-float hidden lg:block" style={{ animationDelay: '1.5s' }}>
-          <div className="bg-white rounded-2xl shadow-xl px-5 py-4 border border-emerald-100">
+        <div className="absolute bottom-32 left-16 animate-float hidden lg:block z-20" style={{ animationDelay: '1.5s' }}>
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl px-5 py-4 border border-emerald-100">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <p className="text-xs text-gray-500 font-medium">100+ Happy Clients</p>
@@ -222,20 +269,20 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <div className="animate-fade-up inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             Ghaziabad • Ramprastha Colony
           </div>
-          <h1 className="animate-fade-up delay-100 font-display text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 leading-tight">
+          <h1 className="animate-fade-up delay-100 font-display text-5xl sm:text-6xl md:text-7xl font-black text-white leading-tight drop-shadow-lg">
             Find your next
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
               perfect property
             </span>
             with PROPERTY MINES
           </h1>
-          <p className="animate-fade-up delay-200 text-gray-600 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            From residential apartments to independent houses and commercial spaces,
-            we help you discover verified properties that truly match your budget, location and lifestyle.
+          <p className="animate-fade-up delay-200 text-gray-200 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+            {heroSlides[currentSlide].tagline} — From residential apartments to independent houses
+            and commercial spaces, we help you discover verified properties.
           </p>
           <div className="animate-fade-up delay-300 flex flex-wrap justify-center gap-4 mt-10">
             <Link
@@ -246,14 +293,14 @@ export default function Home() {
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-3.5 bg-white text-gray-800 font-bold rounded-xl shadow-md hover:shadow-lg hover:scale-105 border border-gray-200 transition-all duration-300 text-base"
+              className="px-8 py-3.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-xl shadow-md hover:bg-white/20 hover:scale-105 border border-white/20 transition-all duration-300 text-base"
             >
               Contact Us
             </Link>
           </div>
 
           {/* Quick search bar */}
-          <div className="animate-fade-up delay-400 mt-12 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto">
+          <div className="animate-fade-up delay-400 mt-12 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-2 flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto">
             <input
               type="text"
               placeholder="🔍  Search by location, property type..."
@@ -271,7 +318,6 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <div key={i} className={`animate-fade-up delay-${i * 100 + 100} text-center`}>
-              <div className="text-3xl mb-2">{s.icon}</div>
               <div className="text-3xl md:text-4xl font-black text-amber-400">
                 <Counter target={s.value} />
               </div>
@@ -284,10 +330,10 @@ export default function Home() {
       {/* ── WHO WE ARE ───────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          {/* Left: colorful visual */}
+          {/* Left: real image */}
           <div className="relative animate-fade-up">
-            <div className="rounded-3xl overflow-hidden bg-gradient-to-br from-amber-100 to-orange-100 aspect-[4/3] flex items-center justify-center shadow-2xl">
-              <span className="text-[8rem]">🏡</span>
+            <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+              <img src={whoWeAreImg} alt="Our Team" className="w-full h-full object-cover" />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-6 py-4 border border-amber-100 animate-float">
@@ -307,7 +353,7 @@ export default function Home() {
               <span className="text-amber-500">with Integrity</span>
             </h2>
             <p className="text-gray-600 mt-5 leading-relaxed text-base">
-              Aroras Properties is not just a consultancy; we are your partners in finding the perfect space.
+              Property Mines is not just a consultancy; we are your partners in finding the perfect space.
               Founded with a vision to bring transparency and professionalism to the Ghaziabad real estate market.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
@@ -371,19 +417,21 @@ export default function Home() {
             {services.map((svc, i) => (
               <div
                 key={i}
-                className={`animate-fade-up delay-${(i + 1) * 100} card-hover p-8 rounded-3xl bg-gradient-to-br ${svc.color} border ${svc.border}`}
+                className={`animate-fade-up delay-${(i + 1) * 100} card-hover rounded-3xl bg-gradient-to-br ${svc.color} border ${svc.border} overflow-hidden`}
               >
-                <div className={`w-14 h-14 ${svc.iconBg} rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-6`}>
-                  {svc.icon}
+                <div className="h-48 overflow-hidden">
+                  <img src={svc.image} alt={svc.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-xl mb-3">{svc.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{svc.desc}</p>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-1 mt-6 text-amber-600 font-semibold text-sm hover:gap-2 transition-all duration-200"
-                >
-                  Learn more →
-                </Link>
+                <div className="p-8">
+                  <h3 className="font-bold text-gray-900 text-xl mb-3">{svc.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{svc.desc}</p>
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center gap-1 mt-6 text-amber-600 font-semibold text-sm hover:gap-2 transition-all duration-200"
+                  >
+                    Learn more →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
