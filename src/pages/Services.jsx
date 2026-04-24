@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import bannerServices from '../assets/images/banner_services.png'
+import imgNoHiddenCharges from '../assets/images/img_no_hidden_charges.png'
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
@@ -305,7 +306,7 @@ export default function Services() {
               { img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&auto=format&fit=crop', title: '15+ Years of Expertise', desc: 'Deep knowledge of Ghaziabad real estate, built over 15+ years of hands-on experience.' },
               { img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&auto=format&fit=crop', title: '100% Legally Safe Deals', desc: 'Every property is thoroughly verified. We ensure your investment is legally sound and clear.' },
               { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&auto=format&fit=crop', title: 'End-to-End Guidance', desc: 'From search to registration, we handle every step so you don\'t have to worry about anything.' },
-              { img: 'https://images.unsplash.com/photo-1582407947092-5a4001a590df?w=400&auto=format&fit=crop', title: 'No Hidden Charges', desc: 'Transparent fee structure with zero surprises. What we quote is exactly what you pay.' },
+              { img: imgNoHiddenCharges, title: 'No Hidden Charges', desc: 'Transparent fee structure with zero surprises. What we quote is exactly what you pay.' },
               { img: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=400&auto=format&fit=crop', title: '24/7 Client Support', desc: 'Our team is always available to answer your questions and address concerns at any time.' },
               { img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&auto=format&fit=crop', title: 'Fast Processing', desc: 'We leverage technology and partnerships to close deals 3x faster than industry average.' },
             ].map((item, i) => (
