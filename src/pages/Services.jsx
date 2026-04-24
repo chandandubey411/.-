@@ -7,7 +7,7 @@ import imgNoHiddenCharges from '../assets/images/img_no_hidden_charges.png'
 
 const services = [
   {
-    id: 'buying',
+    id: '',
     icon: '🏠',
     title: 'Property Buying Assistance',
     tagline: 'Find Your Perfect Home',
