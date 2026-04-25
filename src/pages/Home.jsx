@@ -37,7 +37,7 @@ const properties = [
     price: 'From ₹ 45 Lakhs',
     title: '2 & 3 BHK Flats',
     location: 'Ramprastha Colony, Ghaziabad',
-    beds: 3, baths: 2, sqft: 1250,
+    beds: 3, baths: 2, size: 250,
     image: propApartment,
   },
   {
@@ -47,7 +47,7 @@ const properties = [
     price: 'From ₹ 1.70 Cr',
     title: 'Independent Builder Floor',
     location: 'Ramprastha Colony, Ghaziabad',
-    beds: 4, baths: 3, sqft: 2200,
+    beds: 4, baths: 3, size: 300,
     image: propIndependent,
   },
   {
@@ -57,7 +57,7 @@ const properties = [
     price: 'From ₹ 55 Lakhs',
     title: 'Builder Floor — Ready to Move',
     location: 'Ramprastha Colony, Ghaziabad',
-    beds: 2, baths: 2, sqft: 900,
+    beds: 2, baths: 2, size: 125,
     image: propBuilderFloor,
   },
   {
@@ -67,7 +67,7 @@ const properties = [
     price: 'On Request',
     title: 'Commercial Space — Vaishali Plaza',
     location: 'Vaishali, Near Ramprastha Colony',
-    sqft: 450,
+    size: 150,
     image: propCommercial,
   },
 ]
@@ -186,7 +186,7 @@ function PropertyCard({ prop, delay }) {
         <div className="mt-4 flex items-center gap-4 text-sm text-gray-600 border-t border-gray-100 pt-4">
           {prop.beds && <span className="flex items-center gap-1">🛏️ {prop.beds} Beds</span>}
           {prop.baths && <span className="flex items-center gap-1">🚿 {prop.baths} Baths</span>}
-          <span className="flex items-center gap-1">📐 {prop.sqft} sqft</span>
+          {prop.size && <span className="flex items-center gap-1">📐 {prop.size} sq.yds</span>}
         </div>
 
         <Link

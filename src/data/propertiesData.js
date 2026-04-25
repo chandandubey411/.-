@@ -7,7 +7,7 @@ const properties = [
     price: '₹ 65.5 Lakhs',
     title: 'Luxury 3BHK Apartment',
     location: 'AGCR Enclave, Delhi',
-    beds: 3, baths: 2, sqft: 1450,
+    beds: 3, baths: 2, size: 125,
     image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop',
   },
   {
@@ -17,7 +17,7 @@ const properties = [
     price: '₹ 1.25 Cr',
     title: 'Premium Villa with Garden',
     location: 'Priya Enclave, Delhi',
-    beds: 4, baths: 4, sqft: 2800,
+    beds: 4, baths: 4, size: 150,
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop',
   },
   {
@@ -27,7 +27,7 @@ const properties = [
     price: '₹ 42.0 Lakhs',
     title: 'Modern 2BHK Flat',
     location: 'Hargobind Enclave, Delhi',
-    beds: 2, baths: 2, sqft: 1050,
+    beds: 2, baths: 2, size: 180,
     image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&auto=format&fit=crop',
   },
   {
@@ -37,7 +37,7 @@ const properties = [
     price: '₹ 2.15 Cr',
     title: 'Spacious 4BHK Penthouse',
     location: 'Dayanand Vihar, Delhi',
-    beds: 4, baths: 5, sqft: 3200,
+    beds: 4, baths: 5, size: 200,
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&auto=format&fit=crop',
   },
   {
@@ -47,7 +47,7 @@ const properties = [
     price: '₹ 85.0 Lakhs',
     title: 'Corner Plot in Gated Society',
     location: 'Arya Nagar, Delhi',
-    sqft: 200,
+    size: 250,
     image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop',
   },
   {
@@ -57,7 +57,7 @@ const properties = [
     price: '₹ 28.5 Lakhs',
     title: 'Affordable 1BHK Starter Home',
     location: 'Savita Vihar, Delhi',
-    beds: 1, baths: 1, sqft: 650,
+    beds: 1, baths: 1, size: 275,
     image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&auto=format&fit=crop',
   },
   {
@@ -67,7 +67,7 @@ const properties = [
     price: '₹ 55.0 Lakhs',
     title: 'Commercial Shop Space',
     location: 'Jagriti Enclave, Delhi',
-    sqft: 350,
+    size: 300,
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop',
   },
   {
@@ -77,7 +77,7 @@ const properties = [
     price: '₹ 72.0 Lakhs',
     title: 'Ready to Move 3BHK',
     location: 'Anand Vihar, Delhi',
-    beds: 3, baths: 2, sqft: 1550,
+    beds: 3, baths: 2, size: 350,
     image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop',
   },
   {
@@ -87,7 +87,7 @@ const properties = [
     price: '₹ 1.80 Cr',
     title: 'Independent Stone Villa',
     location: 'Shreshtha Vihar, Delhi',
-    beds: 5, baths: 4, sqft: 3500,
+    beds: 5, baths: 4, size: 375,
     image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&auto=format&fit=crop',
   },
   {
@@ -97,7 +97,7 @@ const properties = [
     price: '₹ 1.50 Cr',
     title: 'Prime Office Space',
     location: 'Yojna Vihar, Delhi',
-    sqft: 2200,
+    size: 125,
     image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&auto=format&fit=crop',
   },
   {
@@ -107,7 +107,7 @@ const properties = [
     price: '₹ 58.0 Lakhs',
     title: 'Semi-Furnished 3BHK',
     location: 'Vivek Vihar, Delhi',
-    beds: 3, baths: 2, sqft: 1380,
+    beds: 3, baths: 2, size: 150,
     image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&auto=format&fit=crop',
   },
   {
@@ -117,7 +117,7 @@ const properties = [
     price: '₹ 3.50 Cr',
     title: 'Prime Agricultural Land',
     location: 'Surajmal Vihar, Delhi',
-    sqft: 5000,
+    size: 180,
     image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&auto=format&fit=crop',
   },
   {
@@ -127,7 +127,7 @@ const properties = [
     price: '₹ 95.0 Lakhs',
     title: 'High-Rise 4BHK with Terrace',
     location: 'Ram Vihar, Delhi',
-    beds: 4, baths: 3, sqft: 2100,
+    beds: 4, baths: 3, size: 200,
     image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&auto=format&fit=crop',
   },
   {
@@ -137,7 +137,7 @@ const properties = [
     price: '₹ 2.40 Cr',
     title: 'Luxury Pool Villa',
     location: 'Shanti Vihar, Delhi',
-    beds: 5, baths: 5, sqft: 4200,
+    beds: 5, baths: 5, size: 250,
     image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop',
   },
   {
@@ -147,7 +147,7 @@ const properties = [
     price: '₹ 1.10 Cr',
     title: 'Showroom on Main Road',
     location: 'Rishabh Vihar, Delhi',
-    sqft: 800,
+    size: 275,
     image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&auto=format&fit=crop',
   },
   {
@@ -157,7 +157,7 @@ const properties = [
     price: '₹ 18,000/mo',
     title: '2BHK Fully Furnished Flat',
     location: 'Surya Niketan, Delhi',
-    beds: 2, baths: 2, sqft: 1100,
+    beds: 2, baths: 2, size: 300,
     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&auto=format&fit=crop',
   },
   {
@@ -167,7 +167,7 @@ const properties = [
     price: '₹ 45.0 Lakhs',
     title: 'Residential Plot Near Metro',
     location: 'Ashoka Niketan, Delhi',
-    sqft: 150,
+    size: 350,
     image: 'https://images.unsplash.com/photo-1466611653911-0072c21f72a6?w=600&auto=format&fit=crop',
   },
   {
@@ -177,7 +177,7 @@ const properties = [
     price: '₹ 35.0 Lakhs',
     title: 'Budget 2BHK Society Flat',
     location: 'Manak Vihar, Delhi',
-    beds: 2, baths: 1, sqft: 850,
+    beds: 2, baths: 1, size: 375,
     image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop',
   },
   {
@@ -187,7 +187,7 @@ const properties = [
     price: '₹ 3.20 Cr',
     title: 'Ultra Modern Smart Villa',
     location: 'Vigyan Lok, Delhi',
-    beds: 6, baths: 6, sqft: 5000,
+    beds: 6, baths: 6, size: 125,
     image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&auto=format&fit=crop',
   },
   {
@@ -197,7 +197,7 @@ const properties = [
     price: '₹ 75,000/mo',
     title: 'IT Office Space Ready',
     location: 'Vigyan Vihar, Delhi',
-    sqft: 3000,
+    size: 150,
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop',
   },
   {
@@ -207,7 +207,7 @@ const properties = [
     price: '₹ 1.05 Cr',
     title: 'Penthouse with City View',
     location: 'Pushpanjali Enclave, Delhi',
-    beds: 3, baths: 3, sqft: 2400,
+    beds: 3, baths: 3, size: 180,
     image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&auto=format&fit=crop',
   },
   {
@@ -217,7 +217,7 @@ const properties = [
     price: '₹ 62.0 Lakhs',
     title: 'Corner Plot in Premium Society',
     location: 'Saini Enclave, Delhi',
-    sqft: 250,
+    size: 200,
     image: 'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=600&auto=format&fit=crop',
   },
   {
@@ -227,7 +227,7 @@ const properties = [
     price: '₹ 48.0 Lakhs',
     title: 'East-Facing 2BHK Flat',
     location: 'Bahubali Enclave, Delhi',
-    beds: 2, baths: 2, sqft: 1000,
+    beds: 2, baths: 2, size: 250,
     image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600&auto=format&fit=crop',
   },
   {
@@ -237,7 +237,7 @@ const properties = [
     price: '₹ 1.60 Cr',
     title: 'Duplex Bungalow with Lawn',
     location: 'AGCR Enclave, Delhi',
-    beds: 4, baths: 3, sqft: 3200,
+    beds: 4, baths: 3, size: 275,
     image: 'https://images.unsplash.com/photo-1598228723793-52759bba239c?w=600&auto=format&fit=crop',
   },
   {
@@ -247,7 +247,7 @@ const properties = [
     price: '₹ 88.0 Lakhs',
     title: 'Retail Space in Mall',
     location: 'Priya Enclave, Delhi',
-    sqft: 600,
+    size: 300,
     image: 'https://images.unsplash.com/photo-1519642918688-7e43b19245d8?w=600&auto=format&fit=crop',
   },
   {
@@ -257,7 +257,7 @@ const properties = [
     price: '₹ 12,000/mo',
     title: 'Cozy 1BHK near Market',
     location: 'Hargobind Enclave, Delhi',
-    beds: 1, baths: 1, sqft: 550,
+    beds: 1, baths: 1, size: 350,
     image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&auto=format&fit=crop',
   },
   {
@@ -267,7 +267,7 @@ const properties = [
     price: '₹ 1.20 Cr',
     title: 'Industrial Plot Near Highway',
     location: 'Dayanand Vihar, Delhi',
-    sqft: 1000,
+    size: 375,
     image: 'https://images.unsplash.com/photo-1467226632440-65f0b4957563?w=600&auto=format&fit=crop',
   },
   {
@@ -277,7 +277,7 @@ const properties = [
     price: '₹ 82.0 Lakhs',
     title: 'Premium 3BHK in Gated Complex',
     location: 'Arya Nagar, Delhi',
-    beds: 3, baths: 3, sqft: 1750,
+    beds: 3, baths: 3, size: 125,
     image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&auto=format&fit=crop',
   },
   {
@@ -287,7 +287,7 @@ const properties = [
     price: '₹ 4.50 Cr',
     title: 'Farmhouse with Pool & Garden',
     location: 'Savita Vihar, Delhi',
-    beds: 6, baths: 7, sqft: 8000,
+    beds: 6, baths: 7, size: 150,
     image: 'https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?w=600&auto=format&fit=crop',
   },
   {
@@ -297,7 +297,7 @@ const properties = [
     price: '₹ 2.80 Cr',
     title: 'Commercial Building 4 Floors',
     location: 'Jagriti Enclave, Delhi',
-    sqft: 6000,
+    size: 180,
     image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&auto=format&fit=crop',
   },
   {
@@ -307,7 +307,7 @@ const properties = [
     price: '₹ 54.0 Lakhs',
     title: 'Well-Ventilated 2BHK',
     location: 'Anand Vihar, Delhi',
-    beds: 2, baths: 2, sqft: 1100,
+    beds: 2, baths: 2, size: 200,
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop',
   },
   {
@@ -317,7 +317,7 @@ const properties = [
     price: '₹ 32.0 Lakhs',
     title: 'Residential Plot with Water',
     location: 'Shreshtha Vihar, Delhi',
-    sqft: 120,
+    size: 250,
     image: 'https://images.unsplash.com/photo-1543393716-375f47996a77?w=600&auto=format&fit=crop',
   },
   {
@@ -327,7 +327,7 @@ const properties = [
     price: '₹ 25,000/mo',
     title: 'Fully Furnished 3BHK',
     location: 'Yojna Vihar, Delhi',
-    beds: 3, baths: 2, sqft: 1400,
+    beds: 3, baths: 2, size: 275,
     image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop',
   },
   {
@@ -337,7 +337,7 @@ const properties = [
     price: '₹ 2.10 Cr',
     title: 'Heritage Style Bungalow',
     location: 'Vivek Vihar, Delhi',
-    beds: 5, baths: 4, sqft: 4000,
+    beds: 5, baths: 4, size: 300,
     image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=600&auto=format&fit=crop',
   },
   {
@@ -347,7 +347,7 @@ const properties = [
     price: '₹ 1.75 Cr',
     title: 'Warehouse + Office Complex',
     location: 'Surajmal Vihar, Delhi',
-    sqft: 4500,
+    size: 350,
     image: 'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?w=600&auto=format&fit=crop',
   },
 ]
