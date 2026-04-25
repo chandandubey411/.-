@@ -70,7 +70,7 @@ export default function PropertyCard({ prop }) {
           )}
           {prop.sqft != null && (
             <span className="flex items-center gap-1">
-              <span className="text-sm">📐</span> {prop.sqft} {prop.type === 'Plot' ? 'sqyds' : 'sqft'}
+              <span className="text-sm">📐</span> {prop.sqft} sq.yd
             </span>
           )}
         </div>

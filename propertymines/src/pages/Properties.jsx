@@ -60,7 +60,7 @@ export default function Properties() {
             </span>
           </h1>
           <p className="mt-5 text-gray-200 text-lg max-w-2xl mx-auto">
-            Explore our handpicked selection of premium apartments, villas, plots, and commercial spaces across Ghaziabad.
+            Explore our handpicked selection of premium apartments, villas, plots, and commercial spaces across prime locations in Delhi NCR.
           </p>
         </div>
       </section>
